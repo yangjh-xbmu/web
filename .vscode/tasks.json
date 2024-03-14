@@ -1,0 +1,15 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [{
+    "label": "build",
+    "type": "shell",
+    // "command": "pandoc --mathjax -t revealjs -s --css imd.css --highlight-style haddock --include-in-header=favicon.html --include-after-body=dev.html  --slide-level=5 title.md intro.md user-research.md acp.md interactive-media-design.md -o index.html",
+    "command": "pandoc --mathjax -t revealjs -s --css imd.css --highlight-style haddock --include-in-header=favicon.html --include-after-body=dev.html  --slide-level=5 title.md front-end.md -o index.html",
+    "group": {
+      "kind": "build",
+      "isDefault": true
+    }
+  }]
+}

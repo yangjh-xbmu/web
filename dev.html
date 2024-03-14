@@ -1,0 +1,59 @@
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+  // 为首页增加视频背景
+  $(document).ready(
+    $("#title-slide").attr({
+      "data-background-video":
+        "https://images-tv.adobe.com/mpcv3/4851/5c7fd358-70a2-4beb-9b62-846519fc7eea_1633994483.960x540at1200_h264.mp4",
+      "data-background-video-loop": true,
+    })
+  );
+  // 为章节增加动态背景
+  Reveal.on("slidechanged", (event) => {
+    let content = Reveal.getCurrentSlide().children;
+    for (const item of content) {
+      if (item.nodeName == "H1") {
+        console.log("存在h1元素");
+        $("div.slide").addClass("animate-bg");
+      } else {
+        $("div.slide").removeClass("animate-bg");
+        break;
+      }
+    }
+  });
+  //  自动化样式
+  $("p:contains('注意：')").addClass("p-warning");
+  $("p:contains('Tips：')").addClass("p-tips");
+  // 显示PPT页码
+  Reveal.configure({
+    slideNumber: "c/t",
+    history: true,
+  });
+
+  // 隐藏标题中的flash卡片制作标记
+  $(function () {
+    // console.log("document.ready()第一次触发");
+    // 去掉#card标记
+    $(':header:contains("#card")').each(function () {
+      // console.log($(this).prop("lastChild"));
+      a = $(this).children();
+      $(this).children().remove();
+      let content = $(this).text().replace("#card", "");
+      $(this).html(content);
+      $(this).append(a);
+    });
+  });
+  // 去掉段落后的card序号
+  $(function () {
+    $(":header+p, li p").each(function () {
+      // console.log($(this).text());
+      // console.log($(this).prop("lastChild").nodeValue);
+      let content = $(this)
+        .prop("lastChild")
+        .nodeValue.replace(/\^\d{10,}/g, "");
+      // console.log(content);
+      $(this).prop("lastChild").nodeValue = content;
+      // $(this).html(content);
+    });
+  });
+</script>

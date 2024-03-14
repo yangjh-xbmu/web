@@ -1,0 +1,660 @@
+@charset 'utf-8';
+
+/* 基于reveal自带样式修改 */
+/* 作者：yangzh.cn */
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+
+:root {
+  --color-primary-100: #CFECFD;
+  --color-primary-200: #A0D6FC;
+  --color-primary-300: #6FB8F7;
+  --color-primary-400: #4B9CF0;
+  --color-primary-500: #1472E6;
+  --color-primary-600: #0E58C5;
+  --color-primary-700: #0A41A5;
+  --color-primary-800: #062E85;
+  --color-primary-900: #03206E;
+  --color-success-100: #F0FBCD;
+  --color-success-200: #DFF89C;
+  --color-success-300: #C2EA68;
+  --color-success-400: #A2D541;
+  --color-success-500: #78BA0E;
+  --color-success-600: #609F0A;
+  --color-success-700: #4B8507;
+  --color-success-800: #386B04;
+  --color-success-900: #2A5902;
+  --color-warning-100: #FFDFF2;
+  --color-warning-200: #FFBFEA;
+  --color-warning-300: #FFA0E9;
+  --color-warning-400: #FF88EE;
+  --color-warning-500: #FF61F7;
+  --color-warning-600: #D546DB;
+  --color-warning-700: #A630B7;
+  --color-warning-800: #7A1E93;
+  --color-warning-900: #5A127A;
+  --color-danger-100: #FFE4D6;
+  --color-danger-200: #FFC2AD;
+  --color-danger-300: #FF9983;
+  --color-danger-400: #FF7265;
+  --color-danger-500: #FF3232;
+  --color-danger-600: #DB2434;
+  --color-danger-700: #B71934;
+  --color-danger-800: #930F32;
+  --color-danger-900: #7A0930;
+  --color-view-background: hsl(0, 0%, 100%);
+  --p-color-primary: #1472E6;
+  --p-color-warning: #FF61F7;
+  --p-color-gray05: hsla(0, 0%, 95%, .8);
+  --p-text-color: hsl(0, 0%, 5%);
+  --p-text-font: 'Source Sans Pro', 'PingFang SC', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  --p-header-font: 'Source Sans Pro', Helvetica, sans-serif;
+  --p-bq-font: 'Times New Roman', 'kaiti';
+  --p-code-font: 'Fira Code', 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei';
+  --p-text-font-size: 1.5rem;
+  --p-letter-spacing: .08rem;
+}
+
+
+.reveal-viewport {
+  background: var(--color-view-background);
+  background-color: var(--color-view-background);
+}
+
+body {
+  background: var(--color-view-background);
+  background-color: var(--color-view-background);
+}
+
+.reveal {
+  color: var(--p-text-color);
+  font-family: var(--p-text-font);
+  font-size: var(--p-text-font-size);
+  font-weight: normal;
+  letter-spacing: var(--p-letter-spacing);
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+::selection {
+  background: var(--p-color-primary);
+  color: var(--r-background-color);
+  text-shadow: none;
+}
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+  font-weight: inherit;
+  line-height: 1.3;
+}
+
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  color: var(--p-text-color);
+  font-family: var(--p-header-font);
+  font-weight: bold;
+  letter-spacing: normal;
+  line-height: 1.3;
+  margin: 0 0 20px 0;
+  text-transform: none;
+  word-wrap: break-word;
+}
+
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  border-image-slice: 1;
+  border-image-source: linear-gradient(180deg, var(--p-color-primary), var(--p-color-warning));
+  border-left: .2em solid;
+  padding-left: .25em;
+}
+
+.reveal h1.title {
+  font-size: 3.2em;
+}
+
+.reveal h1 {
+  animation: flow 20s infinite linear;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(64deg, var(--p-color-primary), var(--p-color-warning), var(--p-color-primary), var(--p-color-warning), var(--p-color-primary), var(--p-color-warning), var(--p-color-primary), var(--p-color-warning));
+  background-position: 80% 50%;
+  background-size: 200% 200%;
+  color: transparent;
+  font-size: 2.5em;
+  font-weight: bold;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 0px 1px hsla(0, 0%, 100%, .1),
+  0px 4px 4px hsla(0, 0%, 0%, .05);
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0% 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -10% 0;
+  }
+}
+
+.reveal h2 {
+  font-size: 1.6em;
+}
+
+.reveal h3 {
+  font-size: 1.3em;
+}
+
+.reveal h4 {
+  font-size: 1em;
+}
+
+
+
+/*********************************************
+ * OTHER
+ *********************************************/
+
+.reveal p {
+  line-height: 1.5;
+  margin: 20px 0;
+}
+
+
+/* Ensure certain elements are never larger than the slide itself */
+
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-height: 95%;
+  max-width: 95%;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal strong {
+  color: var(--p-color-warning);
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  line-height: 2.5rem;
+  margin: 0 0 0 1em;
+  text-align: left;
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+.reveal ul {
+  list-style-type: disc;
+}
+
+.reveal ul ul {
+  list-style-type: square;
+}
+
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 40px;
+}
+
+.reveal q,
+.reveal blockquote {
+  quotes: none;
+}
+
+.reveal section blockquote {
+  background: var(--p-color-gray05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+  display: block;
+  font-family: var(--p-bq-font);
+  font-size: .8em;
+  font-style: normal;
+  margin: 10px auto;
+  padding: 0 10px;
+  position: relative;
+  text-align: justify;
+  width: 100%;
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal pre {
+  box-shadow: none;
+  width: 100%;
+}
+
+.reveal code {
+  background-color: var(--p-color-gray05);
+  border-radius: 3px;
+  color: var(--color-danger-500);
+  font-family: var(--p-code-font);
+  font-size: .9em;
+  margin: 0;
+  padding: .16em;
+}
+
+/* 代码块 */
+.reveal .sourceCode {
+  font-family: var(--p-code-font);
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.reveal pre code {
+  display: block;
+  letter-spacing: 0;
+  max-height: 400px;
+  overflow: auto;
+  padding: 1em;
+  word-wrap: normal;
+}
+
+.reveal pre code.sourceCode {
+  overflow: auto;
+}
+
+.reveal table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  border: 1px solid;
+  padding: .2em .5em .2em .5em;
+  text-align: left;
+}
+
+.reveal table th[align='center'],
+.reveal table td[align='center'] {
+  text-align: center;
+}
+
+.reveal table th[align='right'],
+.reveal table td[align='right'] {
+  text-align: right;
+}
+
+.reveal sup {
+  vertical-align: super;
+}
+
+.reveal sub {
+  vertical-align: sub;
+}
+
+.reveal sup,
+.reveal sub {
+  font-size: .6em;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: .6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+
+/*********************************************
+ * LINKS
+ *********************************************/
+
+.reveal a {
+  color: var(--p-color-primary);
+  text-decoration: none;
+  -webkit-transition: color .15s ease;
+  -moz-transition: color .15s ease;
+  transition: color .15s ease;
+}
+
+.reveal a::after {
+  color: var(--color-primary-100);
+  content: '\e711';
+  font-family: 'iconfont' !important;
+}
+
+.reveal a:hover {
+  border: none;
+  color: var(--p-color-primary);
+  text-shadow: none;
+}
+
+
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+
+.reveal section img {
+  background: rgba(255, 255, 255, .12);
+  box-shadow: none;
+  margin: 15px 0px;
+  max-height: 500px;
+}
+
+.reveal section img.plain {
+  border: 0;
+  box-shadow: none;
+}
+
+.reveal a img {
+  -webkit-transition: all .15s linear;
+  -moz-transition: all .15s linear;
+  transition: all .15s linear;
+}
+
+.reveal a:hover img {
+  background: rgba(255, 255, 255, .2);
+  border-color: #2A76DD;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .55);
+}
+
+
+
+
+/* 表格样式修改 */
+.reveal table {
+  margin: 10px;
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: 1px solid;
+}
+
+/* 下载链接字体 */
+.reveal a[href*='data'] {
+  font-size: .8em;
+}
+
+.reveal a[href*='data']::before {
+  content: '\e60c';
+  font-family: 'iconfont' !important;
+}
+
+/* 参考文献 */
+
+#参考文献 ul {
+  font-family: var(--p-bq-font);
+  line-height: 1.2em;
+  list-style-type: none;
+}
+
+#参考文献 ul li {
+  margin-top: .8em;
+  padding-left: 2em;
+}
+
+#参考文献 ul li:first-letter {
+  margin-left: -2em;
+}
+
+/* 动态背景 */
+.animate-bg {
+  animation: 20s movement linear infinite;
+  background-image: radial-gradient(closest-side, hsla(334, 66%, 60%, .063), hsla(320, 91%, 50%, 0)),
+  radial-gradient(closest-side, hsla(214, 71%, 66%, .063), hsla(10, 80%, 61%, 0)),
+  radial-gradient(closest-side, hsla(334, 66%, 60%, .063), hsla(256, 84%, 76%, 0)),
+  radial-gradient(closest-side, hsla(0, 0%, 73%, .063), hsla(50, 98%, 75%, 0)),
+  radial-gradient(closest-side, hsla(215, 73%, 67%, .063), hsla(27, 88%, 77%, 0));
+  background-position: -80vmax -80vmax,
+  60vmax -30vmax,
+  10vmax 10vmax,
+  -30vmax -10vmax,
+  50vmax 50vmax;
+  background-repeat: no-repeat;
+  background-size: 130vmax 130vmax,
+  80vmax 80vmax,
+  90vmax 90vmax,
+  110vmax 110vmax,
+  90vmax 90vmax;
+}
+
+@keyframes movement {
+  0%,
+  100% {
+    background-position: -80vmax -80vmax,
+    60vmax -30vmax,
+    10vmax 10vmax,
+    -30vmax -10vmax,
+    50vmax 50vmax;
+    background-size: 130vmax 130vmax,
+    80vmax 80vmax,
+    90vmax 90vmax,
+    110vmax 110vmax,
+    90vmax 90vmax;
+  }
+
+  25% {
+    background-position: -60vmax -90vmax,
+    50vmax -40vmax,
+    0vmax -20vmax,
+    -40vmax -20vmax,
+    40vmax 60vmax;
+    background-size: 100vmax 100vmax,
+    90vmax 90vmax,
+    100vmax 100vmax,
+    90vmax 90vmax,
+    60vmax 60vmax;
+  }
+
+  50% {
+    background-position: -50vmax -70vmax,
+    40vmax -30vmax,
+    10vmax 0vmax,
+    20vmax 10vmax,
+    30vmax 70vmax;
+    background-size: 80vmax 80vmax,
+    110vmax 110vmax,
+    80vmax 80vmax,
+    60vmax 60vmax,
+    80vmax 80vmax;
+  }
+
+  75% {
+    background-position: -50vmax -40vmax,
+    50vmax -30vmax,
+    20vmax 0vmax,
+    -10vmax 10vmax,
+    40vmax 60vmax;
+    background-size: 90vmax 90vmax,
+    90vmax 90vmax,
+    100vmax 100vmax,
+    90vmax 90vmax,
+    70vmax 70vmax;
+  }
+}
+
+.animate-bg::after {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  content: '';
+  display: block;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* iconfont 字体 */
+@font-face {
+  font-family: 'iconfont';
+  /* Project id  */
+  src: url('./media/iconfont.ttf') format('truetype');
+}
+
+/* 警告框 */
+.reveal .p-warning,
+.reveal .p-tips {
+  background-position: 1em 50%;
+  background-repeat: no-repeat;
+  background-size: 1.5em;
+  border-radius: 8px;
+}
+
+.reveal .p-warning {
+  background-color: var(--color-danger-100);
+  background-image: url(./images/attention.svg);
+  padding: 1em 1em 1em 3.5em;
+}
+
+/* 提示框 */
+.reveal .p-tips {
+  background-color: var(--color-success-100);
+  background-image: url(./images/tips.svg);
+  padding: 1em 1em 1em 3.5em;
+}
+
+/* slide-number */
+.reveal .slide-number {
+  background-color: var(--color-view-background);
+  bottom: 8px;
+  color: var(--p-text-color);
+  display: block;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  padding: 5px;
+  position: absolute;
+  text-align: center;
+  width: 95px;
+  z-index: 31;
+}
+
+.reveal .slide-number a::after,
+.reveal pre code a::after {
+  display: none;
+}
+
+
+.reveal .slide-number-delimiter {
+  margin: 0;
+}
+
+/* 控制器 */
+.reveal .controls {
+  bottom: 32px;
+}
+
+/* 三线表 */
+
+.reveal .slides table {
+  font-size: .8em;
+  line-height: 1.5;
+  width: fit-content;
+}
+
+.reveal .slides table th {
+  font-weight: bold;
+  text-align: left;
+}
+
+.reveal .slides table tr {
+  border: none;
+}
+
+.reveal .slides tr:nth-child(2n) {
+  background-color: var(--color-view-background);
+}
+
+.reveal .slides thead tr {
+  border-bottom: 1px solid var(--p-text-color);
+  border-top: 2px solid var(--p-text-color);
+}
+
+.reveal .slides tbody tr:last-child {
+  border-bottom: 2px solid var(--p-text-color);
+}
+
+.reveal .slides table th,
+.reveal .slides table td {
+  border: none;
+  vertical-align: top;
+}
+
+#title-slide p {
+  color: var(--color-view-background);
+}
+
+.reveal strong {
+  color: var(--p-text-color);
+  padding: 2px;
+  position: relative;
+}
+
+.reveal strong:after {
+  background-image: url(./images/vector-yellow.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: '';
+  height: 100%;
+  left: -10px;
+  position: absolute;
+  top: 0;
+  width: calc(100% + 10px);
+  z-index: -1;
+}

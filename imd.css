@@ -1,0 +1,15 @@
+@import url('yangjh.css');
+
+#title-slide h1 {
+  color: var(--color-view-background);
+  background-image: none;
+  -webkit-text-fill-color: var(--color-view-background);
+}
+
+/* 幻灯片背景 */
+.reveal .slide-background-content:empty {
+  filter: blur(8px);
+  opacity: .015;
+  background-image: url(./images/bg.svg);
+  background-size: contain;
+}
